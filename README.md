@@ -1,14 +1,23 @@
-# Adonis Legacy Helper
+# AdonisJS Legacy Helper
 
-Extensão para o Visual Studio Code que adiciona suporte ao AdonisJS 4.1:
+Extensão para Visual Studio Code com suporte ao padrão `use('App/...')` do AdonisJS 4.x e propriedades anotadas com JSDoc:
 
-- 🧭 Go to Definition para `use('App/...')`
-- ⚡ Autocomplete de métodos e propriedades de helpers importados com `use()`
-- 📁 Compatível com estrutura padrão `app/`
+- 🧭 Go to Definition:
+  - `use('App/...')`
+  - `Organization.repository.search()` → abre o Repository (lido via `@type {typeof import('/App/...')}`)
+- ⚡ Autocomplete de métodos e exports do arquivo alvo
 
-### Como usar
-1. Instale a extensão (`adonis-legacy-helper`).
-2. No seu código, use o padrão:
-   ```js
-   const Utils = use('App/Helpers/Utils')
-   Utils.getSomething()
+## Uso
+
+```js
+const Utils = use('App/Helpers/Utils')
+Utils.getSomething() // autocomplete + Ctrl+Click
+
+class Organization extends BaseModel {
+  /** @type {typeof import('/App/Repositories/Organization/OrganizationRepository')} */
+  static repository
+}
+
+Organization.repository.search() // autocomplete + Ctrl+Click → abre o repo
+
+

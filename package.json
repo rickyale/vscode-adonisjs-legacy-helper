@@ -27,7 +27,12 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
+    "reinstall": "vsce package && code --install-extension adonis-legacy-helper-0.0.1.vsix --force",
     "test": "vscode-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rickyale/vscode-adonisjs-legacy-helper.git"
   },
   "devDependencies": {
     "@types/vscode": "^1.105.0",
